@@ -1,0 +1,2362 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicios de Soporte y Consultoría IT</title>
+  <!-- Bootstrap CSS for responsive design (Bootstrap 5.3.2) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <style>
+    /* Import SF Pro Display font */
+    @import url('https://fonts.cdnfonts.com/css/sf-pro-display');
+
+    /* Global Styles con estética Apple */
+    body {
+      font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      letter-spacing: -0.02em;
+    }
+    
+    h1, h2, h3, h4, .navbar-brand, .btn, .form-control {
+      font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+    }
+    
+    p {
+      margin-bottom: 1rem;
+      color: #f5f5f7;
+      font-weight: 400;
+    }
+    
+    section {
+      background-color: #111;
+      color: #fff;
+      padding: 100px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .container {
+      max-width: 1200px;
+    }
+    
+    .section-header {
+      margin-bottom: 60px;
+    }
+    
+    .section-header h2 {
+      font-size: 42px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      letter-spacing: -0.04em;
+    }
+    
+    .section-header p {
+      font-size: 20px;
+      max-width: 700px;
+      margin: 0 auto;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    /* Navigation con estilo Apple */
+    .navbar {
+      padding: 16px 0;
+      background-color: rgba(17, 17, 17, 0.9) !important;
+      border-bottom: none;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    
+    .navbar-brand {
+      font-size: 28px;
+      font-weight: 600;
+      color: #fff !important;
+      letter-spacing: -0.5px;
+      position: relative;
+    }
+    
+    nav a.nav-link {
+      font-size: 18px;
+      color: #f5f5f7 !important;
+      margin: 0 8px;
+      opacity: 0.8;
+      transition: all 0.3s ease;
+      padding: 8px 12px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 8px;
+      background: transparent;
+      font-weight: 500;
+    }
+    
+    nav a.nav-link:hover {
+      opacity: 1;
+      background: rgba(255, 255, 255, 0.05);
+      transform: translateY(-2px);
+    }
+    
+    nav a.nav-link i {
+      font-size: 14px;
+      transition: transform 0.3s ease;
+    }
+    
+    nav a.nav-link:hover i {
+      transform: scale(1.2);
+    }
+    
+    /* Hero Section con estilo Apple */
+    header {
+      background: linear-gradient(135deg, rgba(0,0,0,0.9), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80') no-repeat center center;
+      background-size: cover;
+      padding: 180px 0 140px;
+      position: relative;
+      background-color: #000000;
+    }
+    
+    .hero-content {
+      text-align: center;
+    }
+    
+    .hero-title {
+      font-size: 112px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+    }
+    
+    .text-gradient {
+      background: linear-gradient(90deg, #2196F3, #21CBF3);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .hero-subtitle {
+      font-size: 48px;
+      line-height: 1.5;
+      font-weight: 400;
+      max-width: 1000px;  /* Cambiado de 800px a 1000px */
+      margin: 0 auto 40px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .highlight {
+      color: #2196F3;
+      font-weight: 500;
+      position: relative;
+    }
+    
+    .highlight::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: rgba(33, 150, 243, 0.4);
+      border-radius: 10px;
+    }
+    
+    .hero-features {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    
+    .hero-feature {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 12px 24px;
+      border-radius: 30px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: all 0.3s ease;
+    }
+    
+    .hero-feature:hover {
+      transform: translateY(-5px);
+      background: rgba(33, 150, 243, 0.15);
+      border-color: rgba(33, 150, 243, 0.3);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .hero-feature i {
+      font-size: 18px;
+      color: #2196F3;
+    }
+    
+    .hero-feature span {
+      font-size: 15px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.95);
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+    
+    .btn-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 30px;
+    }
+    
+    .btn-hero {
+      background: rgba(33, 150, 243, 0.25);
+      color: white;
+      padding: 16px 40px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 30px;
+      border: 1px solid rgba(33, 150, 243, 0.4);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 8px 30px rgba(33, 150, 243, 0.25), 0 0 20px rgba(33, 150, 243, 0.15) inset;
+      transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+    
+    .btn-hero:hover {
+      transform: translateY(-5px) scale(1.02);
+      background: rgba(33, 150, 243, 0.35);
+      box-shadow: 0 15px 35px rgba(33, 150, 243, 0.35), 0 0 30px rgba(33, 150, 243, 0.25) inset;
+      border-color: rgba(33, 150, 243, 0.6);
+      color: white;
+    }
+    
+    .btn-hero i {
+      font-size: 18px;
+      color: #2196F3;
+      transition: all 0.4s ease;
+    }
+    
+    .btn-hero:hover i {
+      transform: scale(1.15);
+      color: white;
+    }
+    
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: white;
+      padding: 16px 40px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 30px;
+      transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+    
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      color: white;
+    }
+    
+    .btn-outline i {
+      font-size: 18px;
+      transition: all 0.4s ease;
+    }
+    
+    .btn-outline:hover i {
+      transform: scale(1.15);
+    }
+    
+    /* Efecto glow para el botón Ver Portafolio */
+    .btn-glow {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(41, 121, 255, 0.2), rgba(0, 191, 255, 0.2));
+      border: 1px solid rgba(41, 121, 255, 0.4);
+      box-shadow: 0 8px 25px rgba(41, 121, 255, 0.25), 0 0 15px rgba(41, 121, 255, 0.15) inset;
+      animation: subtle-glow 3s infinite alternate;
+    }
+    
+    @keyframes subtle-glow {
+      0% { box-shadow: 0 8px 25px rgba(41, 121, 255, 0.25), 0 0 15px rgba(41, 121, 255, 0.15) inset; }
+      100% { box-shadow: 0 8px 30px rgba(41, 121, 255, 0.45), 0 0 20px rgba(41, 121, 255, 0.25) inset; }
+    }
+    
+    .btn-glow::after {
+      content: '';
+      position: absolute;
+      top: -100%;
+      left: -100%;
+      width: 50%;
+      height: 300%;
+      background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%,
+                      rgba(255, 255, 255, 0.3) 50%,
+                      rgba(255, 255, 255, 0) 100%);
+      transform: rotate(25deg);
+      animation: shine 4s infinite;
+      pointer-events: none;
+    }
+    
+    @keyframes shine {
+      0% { left: -100%; }
+      20% { left: 100%; }
+      100% { left: 100%; }
+    }
+    
+    .btn-glow::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(76, 175, 80, 0.4) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      z-index: -1;
+      pointer-events: none;
+    }
+    
+    .btn-glow:hover {
+      background: linear-gradient(135deg, rgba(41, 121, 255, 0.3), rgba(0, 191, 255, 0.3));
+      border-color: rgba(41, 121, 255, 0.6);
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: 0 15px 35px rgba(41, 121, 255, 0.35), 0 0 25px rgba(41, 121, 255, 0.25) inset;
+    }
+    
+    .btn-glow:hover::before {
+      opacity: 1;
+      animation: pulse 2s infinite;
+    }
+    
+    .btn-glow i {
+      color: #2979FF;
+      font-size: 18px;
+      filter: drop-shadow(0 0 5px rgba(41, 121, 255, 0.5));
+      transition: all 0.4s ease;
+    }
+    
+    .btn-glow:hover i {
+      color: #fff;
+      filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+      transform: scale(1.2);
+    }
+    
+    .btn-glow span {
+      position: relative;
+      z-index: 1;
+      letter-spacing: 0.5px;
+      color: rgba(255, 255, 255, 0.95);
+      font-weight: 600;
+    }
+    
+    .btn-glow:hover span {
+      letter-spacing: 1px;
+      transition: letter-spacing 0.3s ease;
+      color: #ffffff;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(0.95); opacity: 0.6; }
+      50% { transform: scale(1.05); opacity: 0.9; }
+      100% { transform: scale(0.95); opacity: 0.6; }
+    }
+    
+    .hero-shape-1, .hero-shape-2 {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      z-index: 0;
+      opacity: 0.2;
+    }
+    
+    .hero-shape-1 {
+      width: 400px;
+      height: 400px;
+      background: rgba(33, 150, 243, 0.4);
+      top: -100px;
+      right: -100px;
+      animation: float 15s ease-in-out infinite;
+    }
+    
+    .hero-shape-2 {
+      width: 500px;
+      height: 500px;
+      background: rgba(33, 150, 243, 0.2);
+      bottom: -150px;
+      left: -150px;
+      animation: float 20s ease-in-out infinite reverse;
+    }
+    
+    @keyframes float {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      50% { transform: translate(30px, 30px) rotate(5deg); }
+      100% { transform: translate(0, 0) rotate(0deg); }
+    }
+    
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 42px;
+      }
+      .hero-subtitle {
+        font-size: 18px;
+      }
+      .hero-features {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    
+    /* Estilos para la sección de servicios con estética Apple */
+    #services {
+      background: linear-gradient(180deg, #111 0%, #111 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 100px 0;
+    }
+    
+    #services::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(33, 150, 243, 0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    
+    /* Estilos para la sección de contacto rediseñada */
+    #contact {
+      background: linear-gradient(135deg, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1485217988980-11786ced9454?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80') no-repeat center center;
+      background-size: cover;
+      position: relative;
+      overflow: hidden;
+      padding: 120px 0;
+    }
+    
+    #contact::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: radial-gradient(circle at 20% 30%, rgba(41, 121, 255, 0.08) 0%, transparent 60%),
+                  radial-gradient(circle at 80% 70%, rgba(0, 191, 255, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    
+    .contact-container {
+      position: relative;
+      z-index: 2;
+      background: rgba(18, 18, 18, 0.7);
+      border-radius: 24px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      padding: 0;
+    }
+    
+    .contact-title {
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      background: linear-gradient(90deg, #2979FF, #00BFff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.03em;
+    }
+    
+    .contact-subtitle {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 40px;
+      max-width: 500px;
+    }
+    
+    .contact-info {
+      padding: 60px;
+      position: relative;
+      height: 100%;
+    }
+    
+    .contact-info::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 1px;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent, rgba(41, 121, 255, 0.3), transparent);
+    }
+    
+    .contact-methods {
+      margin-bottom: 40px;
+    }
+    
+    .contact-method {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 30px;
+      transition: all 0.3s ease;
+      padding: 15px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .contact-method:hover {
+      transform: translateY(-5px);
+      background: rgba(41, 121, 255, 0.08);
+      border-color: rgba(41, 121, 255, 0.2);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, rgba(41, 121, 255, 0.2), rgba(0, 191, 255, 0.2));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 20px;
+      flex-shrink: 0;
+      border: 1px solid rgba(41, 121, 255, 0.3);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .contact-method:hover .contact-icon {
+      transform: scale(1.1);
+      background: linear-gradient(135deg, rgba(41, 121, 255, 0.3), rgba(0, 191, 255, 0.3));
+      box-shadow: 0 10px 20px rgba(41, 121, 255, 0.2);
+    }
+    
+    .contact-icon i {
+      font-size: 20px;
+      color: #2979FF;
+      filter: drop-shadow(0 0 5px rgba(41, 121, 255, 0.5));
+    }
+    
+    .contact-text h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: white;
+    }
+    
+    .contact-text p {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.7);
+      margin: 0;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 40px;
+    }
+    
+    .social-link {
+      width: 45px;
+      height: 45px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 18px;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .social-link:hover {
+      transform: translateY(-5px);
+      background: linear-gradient(135deg, rgba(41, 121, 255, 0.2), rgba(0, 191, 255, 0.2));
+      color: white;
+      border-color: rgba(41, 121, 255, 0.3);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .contact-form-container {
+      padding: 60px;
+      position: relative;
+      height: 100%;
+    }
+    
+    .contact-form {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .form-floating {
+      margin-bottom: 20px;
+    }
+    
+    .form-control {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      color: white;
+      padding: 20px 15px;
+      height: auto;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+    
+    .form-control:focus {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(41, 121, 255, 0.4);
+      box-shadow: 0 0 0 3px rgba(41, 121, 255, 0.15);
+      color: white;
+    }
+    
+    .form-floating label {
+      padding: 20px 15px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+    
+    .form-floating > .form-control:focus ~ label,
+    .form-floating > .form-control:not(:placeholder-shown) ~ label {
+      color: rgba(41, 121, 255, 0.8);
+      padding-top: 5px;
+      padding-bottom: 5px;
+      opacity: 1;
+      transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+    }
+    
+    .submit-btn {
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 28px;
+      background: linear-gradient(135deg, rgba(41, 121, 255, 0.9), rgba(0, 191, 255, 0.9));
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(41, 121, 255, 0.3);
+      width: 100%;
+    }
+    
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(41, 121, 255, 0.4);
+      background: linear-gradient(135deg, rgba(41, 121, 255, 1), rgba(0, 191, 255, 1));
+    }
+    
+    .submit-btn:active {
+      transform: translateY(1px);
+      box-shadow: 0 2px 10px rgba(41, 121, 255, 0.3);
+    }
+    
+    .submit-btn i {
+      margin-left: 8px;
+      font-size: 16px;
+      transition: transform 0.3s ease;
+    }
+    
+    .submit-btn:hover i {
+      transform: translateX(4px);
+    }
+    
+    .submit-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: 0.5s;
+    }
+    
+    .submit-btn:hover::before {
+      left: 100%;
+    }
+    
+    .submit-text {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .contact-decoration {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.15;
+      z-index: 0;
+    }
+    
+    .contact-decoration-1 {
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(41, 121, 255, 0.4), rgba(0, 191, 255, 0.1));
+      bottom: -50px;
+      left: -100px;
+      filter: blur(30px);
+    }
+    
+    .contact-decoration-2 {
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(41, 121, 255, 0.3), rgba(0, 191, 255, 0.1));
+      top: -50px;
+      right: -50px;
+      filter: blur(25px);
+    }
+    
+    @media (max-width: 992px) {
+      .contact-info::after {
+        display: none;
+      }
+      
+      .contact-info, .contact-form-container {
+        padding: 40px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .contact-title {
+        font-size: 36px;
+      }
+      
+      .contact-subtitle {
+        font-size: 16px;
+      }
+      .contact-decoration {
+        display: none;
+      }
+    }
+    
+    /* Footer con estética Apple */
+    .footer {
+      background: #111;
+      color: #f5f5f7;
+      padding: 30px 0;  /* Reducido de 60px a 30px */
+      text-align: center;
+    }
+    
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 10px;  /* Reducido de 20px a 10px */
+    }
+    
+    .footer-brand i {
+      filter: drop-shadow(0 0 10px rgba(33, 150, 243, 0.3));
+      transition: transform 0.3s ease;
+    }
+    
+    .footer-brand:hover i {
+      transform: scale(1.1);
+    }
+    
+    .footer-tagline {
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+    
+    .footer-divider {
+      width: 40px;
+      height: 2px;
+      background: linear-gradient(90deg, #2196F3, #21CBF3);
+      margin: 0 auto 10px;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+    
+    .footer-link {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 14px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-link:hover {
+      color: #2196F3;
+      text-decoration: none;
+    }
+    
+    .footer-divider {
+      width: 100%;
+      max-width: 600px;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.1);
+      margin: 20px auto;
+    }
+    
+    /* Portafolio de Automatizaciones IA Section con estética Apple */
+    #ai-portfolio {
+      background: linear-gradient(135deg, #111, #111);
+      position: relative;
+      overflow: hidden;
+      padding: 100px 0;
+    }
+    
+    #ai-portfolio::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: radial-gradient(circle at 20% 30%, rgba(33, 150, 243, 0.08) 0%, transparent 60%),
+                  radial-gradient(circle at 80% 70%, rgba(0, 191, 255, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    
+    .ai-solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
+      margin-top: 60px;
+    }
+    
+    .ai-solution-card {
+      background: rgba(15, 15, 15, 0.5);
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+      transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    
+    .ai-solution-card:hover {
+      transform: translateY(-20px);
+      box-shadow: 0 35px 70px rgba(33, 150, 243, 0.2), 0 0 25px rgba(33, 150, 243, 0.1);
+      border-color: rgba(33, 150, 243, 0.2);
+    }
+    
+    .featured-solution {
+      border: 1px solid rgba(33, 150, 243, 0.3) !important;
+      box-shadow: 0 25px 50px rgba(33, 150, 243, 0.15) !important;
+      position: relative;
+      z-index: 2;
+      transform: scale(1.05);
+    }
+    
+    .featured-solution::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 30px;
+      padding: 1px;
+      background: linear-gradient(180deg, rgba(33, 150, 243, 0.3), rgba(0, 191, 255, 0.1));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    .featured-solution:hover {
+      transform: translateY(-20px) scale(1.05);
+      box-shadow: 0 35px 70px rgba(33, 150, 243, 0.25), 0 0 25px rgba(33, 150, 243, 0.15) inset !important;
+      border-color: rgba(33, 150, 243, 0.4) !important;
+    }
+    
+    .pyme-badge {
+      position: absolute;
+      top: -15px;
+      right: 20px;
+      background: linear-gradient(135deg, #2196F3, #00BFff);
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(33, 150, 243, 0.4);
+      z-index: 10;
+      letter-spacing: 0.5px;
+    }
+    
+    .featured-solution .solution-title {
+      color: #2196F3;
+    }
+    
+    .featured-solution .tech-badge {
+      background: rgba(33, 150, 243, 0.15);
+      border: 1px solid rgba(33, 150, 243, 0.3);
+    }
+    
+    .featured-solution .tech-badge:hover {
+      background: rgba(33, 150, 243, 0.25);
+    }
+    
+    .featured-solution .demo-btn {
+      background: rgba(33, 150, 243, 0.9);
+    }
+    
+    .featured-solution .demo-btn:hover {
+      background: rgba(33, 150, 243, 1);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+    
+    .featured-solution::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, #2196F3, #00BFff);
+    }
+    
+    .solution-preview {
+      position: relative;
+      height: 250px;
+      overflow: hidden;
+    }
+    
+    .solution-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+    
+    .ai-solution-card:hover .solution-preview img {
+      transform: scale(1.1);
+    }
+    
+    .solution-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    
+    .ai-solution-card:hover .solution-overlay {
+      opacity: 1;
+    }
+    
+    .demo-btn {
+      background: rgba(33, 150, 243, 0.9);
+      color: white;
+      padding: 16px 32px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 500;
+      transform: translateY(20px);
+      transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+      cursor: pointer;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      font-size: 16px;
+      letter-spacing: -0.01em;
+    }
+    
+    .ai-solution-card:hover .demo-btn {
+      transform: translateY(0);
+    }
+    
+    .demo-btn:hover {
+      background: rgba(33, 150, 243, 1);
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+    
+    .demo-btn i {
+      font-size: 18px;
+    }
+    
+    .featured-solution .demo-btn {
+      background: rgba(33, 150, 243, 0.9);
+      box-shadow: 0 15px 30px rgba(33, 150, 243, 0.3);
+    }
+    
+    .featured-solution .demo-btn:hover {
+      background: rgba(33, 150, 243, 1);
+      box-shadow: 0 20px 40px rgba(33, 150, 243, 0.4);
+    }
+    
+    .solution-info {
+      padding: 40px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .solution-title {
+      font-size: 26px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: white;
+      letter-spacing: -0.03em;
+    }
+    
+    .solution-description {
+      font-size: 17px;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 30px;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+    
+    .featured-solution .solution-info {
+      background: linear-gradient(to bottom, rgba(15, 15, 15, 0.5), rgba(15, 15, 15, 0.8));
+    }
+    
+    .solution-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    
+    .tech-badge {
+      background: rgba(33, 150, 243, 0.15);
+      color: rgba(255, 255, 255, 0.9);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      border: 1px solid rgba(33, 150, 243, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .tech-badge:hover {
+      background: rgba(33, 150, 243, 0.25);
+      transform: translateY(-2px);
+    }
+    
+    .solution-client {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: 8px;
+    }
+    
+    .solution-client strong {
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    @media (max-width: 768px) {
+      .ai-solutions-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    /* Flip card effect */
+    .service-card {
+      perspective: 1000px;
+    }
+    .service-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+    .service-card:hover .service-card-inner {
+      transform: rotateY(180deg);
+    }
+    .service-card-front, .service-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+    }
+    .service-card-back {
+      transform: rotateY(180deg);
+      padding: 30px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    
+    /* Nuevos estilos para el reverso de las tarjetas */
+    .service-icon-back {
+      width: 80px;
+      height: 80px;
+      background: rgba(33, 150, 243, 0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      border: 1px solid rgba(33, 150, 243, 0.2);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      z-index: 2;
+    }
+    .service-icon-back i {
+      font-size: 32px;
+      color: #2196F3;
+    }
+    .back-overlay {
+      position: relative;
+      z-index: 1;
+      padding: 30px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .service-card-back {
+      position: relative;
+      background: none;
+      overflow: hidden;
+    }
+    .service-card-back::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      filter: grayscale(100%);
+      z-index: 0;
+    }
+    .service-card-back.automation-bg::before {
+      background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80');
+    }
+    .service-card-back.consulting-bg::before {
+      background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1581094198361-c98f35f6c441?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80');
+    }
+    .service-card-back.network-bg::before {
+      background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1556155092-8707de31f9c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80');
+    }
+    .service-card-back.continuity-bg::before {
+      background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1526318472351-b2896d81b2ee?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80');
+    }
+    
+    /* Nuevos estilos para el fondo de la parte frontal de las tarjetas */
+    .service-card-front.automation-bg {
+      background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.7);
+    }
+    
+    .service-card-front.consulting-bg {
+      background-image: url('https://images.unsplash.com/photo-1581094198361-c98f35f6c441?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.7);
+    }
+    
+    .service-card-front.network-bg {
+      background-image: url('https://images.unsplash.com/photo-1556155092-8707de31f9c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.7);
+    }
+    
+    .service-card-front.continuity-bg {
+      background-image: url('https://images.unsplash.com/photo-1526318472351-b2896d81b2ee?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.7);
+    }
+    
+    /* Services Carousel Flip Card Styles */
+    .carousel-item {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    .flip-card {
+      background-color: transparent;
+      width: 100%;
+      height: 400px;
+      perspective: 1000px;
+      margin-bottom: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      border-radius: 15px;
+    }
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      overflow: hidden;
+    }
+    .flip-card-front {
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    .flip-card-back {
+      background-color: #1e1e1e;
+      transform: rotateY(180deg);
+      padding: 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: linear-gradient(135deg, #1e1e1e, #111);
+      border: 1px solid rgba(33, 150, 243, 0.2);
+    }
+    .cta-btn {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+    .cta-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 12px rgba(255,255,255,0.3);
+    }
+    .feature-list {
+      text-align: left;
+      padding-left: 0;
+      list-style: none;
+    }
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+    }
+    
+    /* Mejoras para las tarjetas de servicios */
+    .flip-card {
+      margin: 15px 0;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    }
+    
+    .flip-card-front h3 {
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: 600;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+    
+    .service-icon {
+      margin-bottom: 15px;
+      filter: drop-shadow(0 0 10px rgba(33, 150, 243, 0.5));
+    }
+    
+    .flip-card-front > div {
+      background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.8)) !important;
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+      transition: all 0.3s ease;
+      border-radius: 15px;
+      height: 100%;
+      width: 100%;
+    }
+    
+    .flip-card:hover .flip-card-front > div {
+      background: linear-gradient(to bottom, rgba(33, 150, 243, 0.4), rgba(33, 150, 243, 0.8)) !important;
+    }
+    
+    .flip-card-back h3 {
+      color: #2196F3;
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    
+    .service-description {
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .cta-btn {
+      background-color: #2196F3;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      margin-top: 15px;
+      display: inline-block;
+    }
+    
+    .cta-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 10px 20px rgba(33, 150, 243, 0.3);
+      background-color: #1976D2;
+      color: white;
+    }
+    
+    /* Línea divisora para la sección de servicios */
+    .section-divider {
+      position: relative;
+      height: 10px;
+      width: 150px;
+      margin: 20px auto 40px;
+      overflow: hidden;
+    }
+    
+    .section-divider::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, #2196F3, #64B5F6, #2196F3);
+      border-radius: 10px;
+      /* Eliminada animación para un separador estático */
+    }
+    
+    .services-grid {
+      margin-top: 30px;
+    }
+    
+    /* Nueva Tarjeta: Cableado estructurado, redes & cctv (modificada) */
+    /* The Cloud Computing card has been merged with Automatizaciones AI above, so only the modified card remains here */
+    
+    /* Estilos para la sección de Clientes */
+    #clientes {
+      background: linear-gradient(135deg, #111, #111);
+      position: relative;
+      overflow: hidden;
+      padding: 100px 0;
+    }
+
+    #clientes::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: radial-gradient(circle at 20% 30%, rgba(33, 150, 243, 0.08) 0%, transparent 60%),
+                  radial-gradient(circle at 80% 70%, rgba(0, 191, 255, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .testimonial-card {
+      background: rgba(15, 15, 15, 0.5);
+      border-radius: 20px;
+      padding: 30px;
+      margin: 15px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(33, 150, 243, 0.3);
+      box-shadow: 0 30px 60px rgba(33, 150, 243, 0.2);
+    }
+
+    .client-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .client-logo i {
+      margin-bottom: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .testimonial-card:hover .client-logo {
+      background: rgba(33, 150, 243, 0.1);
+      transform: translateY(-5px);
+    }
+
+    .testimonial-card:hover .client-logo i {
+      transform: scale(1.1);
+    }
+
+    .testimonial-content {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .testimonial-text {
+      font-size: 16px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 20px;
+      flex-grow: 1;
+      font-style: italic;
+    }
+
+    .client-info {
+      margin-top: auto;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 20px;
+    }
+
+    .client-info h4 {
+      font-size: 18px;
+      color: #2196F3;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .client-info p {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.6);
+      margin: 0;
+    }
+
+    /* Carousel Controls */
+    .carousel-control-prev,
+    .carousel-control-next {
+      width: 40px;
+      height: 40px;
+      background: rgba(33, 150, 243, 0.2);
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0.7;
+      margin: 0 20px;
+      z-index: 10;
+    }
+
+    .carousel-control-prev:hover,
+    .carousel-control-next:hover {
+      background: rgba(33, 150, 243, 0.4);
+      opacity: 1;
+    }
+
+    .carousel-control-prev {
+      left: -60px;
+    }
+
+    .carousel-control-next {
+      right: -60px;
+    }
+
+    .carousel-indicators {
+      bottom: -50px;
+    }
+
+    .carousel-indicators button {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: rgba(33, 150, 243, 0.3);
+      border: none;
+      margin: 0 5px;
+      transition: all 0.3s ease;
+    }
+
+    .carousel-indicators button.active {
+      background-color: #2196F3;
+      transform: scale(1.2);
+    }
+
+    /* Carousel Animation Styles */
+    .carousel-item {
+      transition: transform .6s ease-in-out;
+    }
+
+    .carousel-item.active {
+      display: block;
+    }
+
+    .animate__fadeIn {
+      animation-duration: 0.5s;
+    }
+
+    .animate__fadeOut {
+      animation-duration: 0.5s;
+    }
+
+    @media (max-width: 768px) {
+      .carousel-control-prev,
+      .carousel-control-next {
+        display: block;
+        width: 30px;
+        height: 30px;
+        margin: 0 10px;
+      }
+
+      .carousel-control-prev {
+        left: -40px;
+      }
+
+      .carousel-control-next {
+        right: -40px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .carousel-control-prev,
+      .carousel-control-next {
+        display: none;
+      }
+    }
+
+    .social-link {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .social-link:hover {
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), 0 0 15px rgba(255, 255, 255, 0.1) inset;
+    }
+
+    .social-link i {
+      filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
+      transition: transform 0.3s ease;
+    }
+
+    .social-link:hover i {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">iTec Soluciones</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+         <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+         <ul class="navbar-nav ms-auto">
+             <li class="nav-item"><a class="nav-link" href="#services"><i class="fas fa-cogs"></i>Servicios</a></li>
+             <li class="nav-item"><a class="nav-link" href="#implementaciones"><i class="fas fa-wrench"></i>Implementaciones</a></li>
+             <li class="nav-item"><a class="nav-link" href="#ai-portfolio"><i class="fas fa-robot"></i>Portafolio IA</a></li>
+             <li class="nav-item"><a class="nav-link" href="#contact"><i class="fas fa-envelope"></i>Contacto</a></li>
+         </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header style="margin-top: 56px; position: relative; overflow: hidden;">
+    <div id="particles-js" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 1;"></div>
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="hero-content">
+        <h1 class="hero-title animate__animated animate__fadeInUp"><span class="text-gradient">Consultoría IT</span></h1>
+        <p class="hero-subtitle animate__animated animate__fadeInUp animate__delay-1s">
+          Soluciones en <span class="highlight">automatización de procesos</span>, <span class="highlight">cloud computing</span> y <span class="highlight">soporte experto</span> para maximizar tu productividad
+        </p>
+        <div class="hero-features animate__animated animate__fadeInUp animate__delay-2s">
+          <div class="hero-feature">
+            <i class="fas fa-robot"></i>
+            <span>Automatización IA</span>
+          </div>
+          <div class="hero-feature">
+            <i class="fas fa-business-time"></i>
+            <span>Continuidad del Negocio</span>
+          </div>
+          <div class="hero-feature">
+            <i class="fas fa-lightbulb"></i>
+            <span>Consultoría TI</span>
+          </div>
+        </div>
+        <div class="btn-container animate__animated animate__fadeInUp animate__delay-3s">
+          <a href="#ai-portfolio" class="btn btn-hero">
+            <i class="fas fa-robot"></i>
+            <span>Explorar Soluciones IA</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-shape-1"></div>
+    <div class="hero-shape-2"></div>
+  </header>
+
+  <!-- Services Carousel Section -->
+  <section id="services-carousel" class="py-5">
+    <div class="container">
+        <div class="section-header text-center">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <p class="lead opacity-75 mt-3">Soluciones tecnológicas a medida para impulsar tu negocio</p>
+        </div>
+        <div class="services-grid row">
+            <!-- Tarjeta 1: Automatizaciones AI & Cloud (fusion of Automatizaciones AI and Cloud Computing) -->
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front" style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80'); background-size: cover;">
+                            <div style="background: rgba(0, 0, 0, 0.3); width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; text-align: center;">
+                                <div class="service-icon mb-3">
+                                    <i class="fas fa-robot fa-3x" style="color: #2196F3;"></i>
+                                </div>
+                                <h3>Automatizaciones AI & Cloud</h3>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="back-content">
+                                <div class="service-icon-back">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <p class="service-description">Optimice su operación con automatización inteligente y soluciones cloud.</p>
+                                <ul class="feature-list elegant">
+                                    <li class="feature"><span class="feature-icon">•</span> <span>Automatización de flujos de trabajo</span></li>
+                                    <li class="feature"><span class="feature-icon">•</span> <span>Procesamiento de documentos</span></li>
+                                    <li class="feature"><span class="feature-icon">•</span> <span>Migración segura a la nube</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2: Consultoría TI -->
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80'); background-size: cover;">
+                            <div style="background: rgba(0, 0, 0, 0.3); width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; text-align: center;">
+                                <div class="service-icon mb-3">
+                                    <i class="fas fa-laptop-code fa-3x" style="color: #2196F3;"></i>
+                                </div>
+                                <h3>Consultoría TI</h3>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="back-content">
+                                <div class="service-icon-back">
+                                    <i class="fas fa-laptop-code"></i>
+                                </div>
+                                <p class="service-description">Optimice su infraestructura tecnológica con asesoramiento experto adaptado a las necesidades específicas de su empresa.</p>
+                                <ul class="feature-list elegant">
+                                    <li class="feature"><span class="feature-icon">•</span> <span>Análisis de infraestructura existente</span></li>
+                                    <li class="feature"><span class="feature-icon">•</span> <span>Optimización de procesos tecnológicos</span></li>
+                                    <li class="feature"><span class="feature-icon">•</span> <span>Planificación estratégica digital</span></li>
+                                    <li class="feature"><span class="feature-icon">•</span> <span>Auditoría de seguridad informática</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3: Continuidad del Negocio -->
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front" style="background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80'); background-size: cover;">
+                            <div style="background: rgba(0, 0, 0, 0.3); width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; text-align: center;">
+                                <div class="service-icon mb-3">
+                                    <i class="fas fa-shield-alt fa-3x" style="color: #2196F3;"></i>
+                                </div>
+                                <h3>Continuidad del Negocio</h3>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="back-content">
+                                <div class="service-icon-back">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <p class="service-description">Proteja la operatividad de su empresa con soluciones robustas que garantizan la continuidad ante cualquier eventualidad.</p>
+                                <ul class="feature-list elegant">
+                                    <li class="feature"><span class="feature-icon">•</span> <span>Sistemas de respaldo de datos críticos</span></li>
+                                    <li class="feature"><span class="feature-icon">•</span> <span>Planes de contingencia personalizados</span></li>
+                                    <li class="feature"><span class="feature-icon">•</span> <span>Recuperación ante desastres (DR)</span></li>
+                                    <li class="feature"><span class="feature-icon">•</span> <span>Monitoreo continuo de sistemas</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 4: Cableado estructurado, redes & cctv (recreated) -->
+            <div class="col-lg-3 col-md-6 mb-4">
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80'); background-size: cover; background-position: center; border-radius: 10px;">
+                    <div style="background: rgba(0, 0, 0, 0.3); width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; text-align: center; border-radius: 10px;">
+                      <div class="service-icon mb-3">
+                        <i class="fas fa-network-wired fa-3x" style="color: #2196F3;"></i>
+                      </div>
+                      <h3>Cableado estructurado, redes &amp; CCTV</h3>
+                    </div>
+                  </div>
+                  <div class="flip-card-back" style="background: #1e1e1e; padding: 20px; text-align: center; border-radius: 10px;">
+                    <div class="back-content">
+                      <div class="service-icon-back">
+                        <i class="fas fa-network-wired"></i>
+                      </div>
+                      <p class="service-description">Soluciones integrales en cableado estructurado, redes y CCTV para conectividad y seguridad.</p>
+                      <ul class="feature-list elegant">
+                        <li class="feature"><span class="feature-icon">•</span> Instalación profesional</li>
+                        <li class="feature"><span class="feature-icon">•</span> Redes seguras y escalables</li>
+                        <li class="feature"><span class="feature-icon">•</span> Sistemas CCTV HD</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End of Tarjeta 4 -->
+        </div>
+    </div>
+  </section>
+
+  <!-- Empresas que Confían en Nosotros Section -->
+  <section id="clientes" class="py-5">
+    <div class="container">
+        <div class="section-header text-center mb-5">
+            <h2 class="section-title">Empresas que Confían en Nosotros</h2>
+            <p class="lead opacity-75 mt-3">Testimonios de nuestros clientes satisfechos</p>
+        </div>
+        
+        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- First slide -->
+                <div class="carousel-item active">
+                    <div class="row justify-content-center">
+                        <div class="col-md-4">
+                            <div class="testimonial-card">
+                                <div class="client-logo">
+                                    <i class="fas fa-university fa-3x" style="color: #2196F3;"></i>
+                                    <h4 style="margin-top: 10px; color: #fff;">Bancolombia</h4>
+                                </div>
+                                <div class="testimonial-content">
+                                    <p class="testimonial-text">"La automatización implementada por iTec ha transformado nuestros procesos internos, mejorando significativamente la eficiencia operativa."</p>
+                                    <div class="client-info">
+                                        <h4>Carlos Ramirez</h4>
+                                        <p>Director de Tecnología</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="testimonial-card">
+                                <div class="client-logo">
+                                    <i class="fas fa-industry fa-3x" style="color: #2196F3;"></i>
+                                    <h4 style="margin-top: 10px; color: #fff;">Grupo Nutresa</h4>
+                                </div>
+                                <div class="testimonial-content">
+                                    <p class="testimonial-text">"Las soluciones de continuidad de negocio nos han permitido mantener nuestras operaciones 24/7 sin interrupciones."</p>
+                                    <div class="client-info">
+                                        <h4>Ana María Valencia</h4>
+                                        <p>Gerente de Operaciones</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="testimonial-card">
+                                <div class="client-logo">
+                                    <i class="fas fa-shopping-cart fa-3x" style="color: #2196F3;"></i>
+                                    <h4 style="margin-top: 10px; color: #fff;">Grupo Éxito</h4>
+                                </div>
+                                <div class="testimonial-content">
+                                    <p class="testimonial-text">"El sistema de CCTV instalado por iTec nos ha permitido mejorar significativamente la seguridad en nuestras tiendas."</p>
+                                    <div class="client-info">
+                                        <h4>Juan Pablo Mejía</h4>
+                                        <p>Director de Seguridad</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Second slide -->
+                <div class="carousel-item">
+                    <div class="row justify-content-center">
+                        <div class="col-md-4">
+                            <div class="testimonial-card">
+                                <div class="client-logo">
+                                    <i class="fas fa-bolt fa-3x" style="color: #2196F3;"></i>
+                                    <h4 style="margin-top: 10px; color: #fff;">EPM</h4>
+                                </div>
+                                <div class="testimonial-content">
+                                    <p class="testimonial-text">"La consultoría en infraestructura IT nos ayudó a modernizar nuestros sistemas de manera eficiente y segura."</p>
+                                    <div class="client-info">
+                                        <h4>Patricia Duque</h4>
+                                        <p>Gerente de Proyectos IT</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="testimonial-card">
+                                <div class="client-logo">
+                                    <i class="fas fa-building fa-3x" style="color: #2196F3;"></i>
+                                    <h4 style="margin-top: 10px; color: #fff;">Argos</h4>
+                                </div>
+                                <div class="testimonial-content">
+                                    <p class="testimonial-text">"Las soluciones cloud implementadas han revolucionado nuestra forma de trabajar y mejorado la colaboración entre equipos."</p>
+                                    <div class="client-info">
+                                        <h4>Fernando Restrepo</h4>
+                                        <p>CTO</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="testimonial-card">
+                                <div class="client-logo">
+                                    <i class="fas fa-shield-alt fa-3x" style="color: #2196F3;"></i>
+                                    <h4 style="margin-top: 10px; color: #fff;">Sura</h4>
+                                </div>
+                                <div class="testimonial-content">
+                                    <p class="testimonial-text">"La implementación de IA en nuestros procesos ha mejorado significativamente la atención al cliente."</p>
+                                    <div class="client-info">
+                                        <h4>María Isabel Ochoa</h4>
+                                        <p>Directora de Innovación</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Third slide -->
+                <div class="carousel-item">
+                    <div class="row justify-content-center">
+                        <div class="col-md-4">
+                            <div class="testimonial-card">
+                                <div class="client-logo">
+                                    <i class="fas fa-plane fa-3x" style="color: #2196F3;"></i>
+                                    <h4 style="margin-top: 10px; color: #fff;">Avianca</h4>
+                                </div>
+                                <div class="testimonial-content">
+                                    <p class="testimonial-text">"El soporte técnico 24/7 ha sido fundamental para mantener nuestra operación sin interrupciones."</p>
+                                    <div class="client-info">
+                                        <h4>Alberto Gómez</h4>
+                                        <p>Gerente de Operaciones IT</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="testimonial-card">
+                                <div class="client-logo">
+                                    <i class="fas fa-wine-bottle fa-3x" style="color: #2196F3;"></i>
+                                    <h4 style="margin-top: 10px; color: #fff;">Postobón</h4>
+                                </div>
+                                <div class="testimonial-content">
+                                    <p class="testimonial-text">"La red estructurada instalada por iTec ha mejorado significativamente nuestra conectividad y eficiencia."</p>
+                                    <div class="client-info">
+                                        <h4>Carolina Pérez</h4>
+                                        <p>Directora de Infraestructura</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="testimonial-card">
+                                <div class="client-logo">
+                                    <i class="fas fa-broadcast-tower fa-3x" style="color: #2196F3;"></i>
+                                    <h4 style="margin-top: 10px; color: #fff;">Tigo</h4>
+                                </div>
+                                <div class="testimonial-content">
+                                    <p class="testimonial-text">"Las soluciones de automatización han optimizado nuestros procesos de atención al cliente."</p>
+                                    <div class="client-info">
+                                        <h4>Daniel Martínez</h4>
+                                        <p>Gerente de Servicio al Cliente</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Carousel Navigation -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+            
+            <!-- Carousel Indicators -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+  <!-- AI Portfolio Section -->
+  <section id="ai-portfolio" class="py-5">
+    <div class="container">
+      <div class="section-header text-center mb-5">
+        <h2>Portafolio de Automatizaciones IA</h2>
+        <p class="lead opacity-75">Soluciones inteligentes que transforman negocios</p>
+      </div>
+      <div class="ai-solutions-grid">
+        <!-- Solución 1: Chatbots de WhatsApp con IA -->
+        <div class="ai-solution-card">
+          <div class="solution-preview">
+            <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" alt="Chatbots de WhatsApp con IA">
+            <div class="solution-overlay">
+              <div class="demo-btn">
+                <i class="fas fa-play-circle"></i>
+                <span>Ver Demo</span>
+              </div>
+            </div>
+          </div>
+          <div class="solution-info">
+            <h3 class="solution-title">Chatbots de WhatsApp con IA</h3>
+            <p class="solution-description">Automatiza respuestas a clientes, reservas, cotizaciones y soporte 24/7 en WhatsApp, el canal más usado en Colombia.</p>
+            <div class="solution-tech">
+              <span class="tech-badge">WhatsApp API</span>
+              <span class="tech-badge">GPT-4</span>
+              <span class="tech-badge">Node.js</span>
+            </div>
+            <p class="solution-client"><strong>Cliente:</strong> Sector Servicios</p>
+          </div>
+        </div>
+
+        <!-- Solución 2: Automatización de Agendamiento y Calendarios -->
+        <div class="ai-solution-card">
+          <div class="solution-preview">
+            <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" alt="Automatización de Agendamiento">
+            <div class="solution-overlay">
+              <div class="demo-btn">
+                <i class="fas fa-play-circle"></i>
+                <span>Ver Demo</span>
+              </div>
+            </div>
+          </div>
+          <div class="solution-info">
+            <h3 class="solution-title">Automatización de Agendamiento</h3>
+            <p class="solution-description">Bots que gestionan citas para médicos, abogados, salones de belleza, inmobiliarias, etc., reduciendo cancelaciones y tiempo perdido.</p>
+            <div class="solution-tech">
+              <span class="tech-badge">Google Calendar</span>
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">Twilio</span>
+            </div>
+            <p class="solution-client"><strong>Cliente:</strong> Sector Salud</p>
+          </div>
+        </div>
+
+        <!-- Solución 3: Respuestas Automáticas en Email y WhatsApp -->
+        <div class="ai-solution-card">
+          <div class="solution-preview">
+            <img src="https://images.unsplash.com/photo-1596526131083-e8c633c948d2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" alt="Respuestas Automáticas">
+            <div class="solution-overlay">
+              <div class="demo-btn">
+                <i class="fas fa-play-circle"></i>
+                <span>Ver Demo</span>
+              </div>
+            </div>
+          </div>
+          <div class="solution-info">
+            <h3 class="solution-title">Respuestas Automáticas</h3>
+            <p class="solution-description">AI que redacta y envía respuestas a clientes en correos y chats, resolviendo dudas comunes y agilizando la comunicación.</p>
+            <div class="solution-tech">
+              <span class="tech-badge">NLP</span>
+              <span class="tech-badge">Gmail API</span>
+              <span class="tech-badge">WhatsApp Business</span>
+            </div>
+            <p class="solution-client"><strong>Cliente:</strong> E-commerce</p>
+          </div>
+        </div>
+
+        <!-- Solución 4: Automatización de Marketing y Generación de Leads -->
+        <div class="ai-solution-card">
+          <div class="solution-preview">
+            <img src="https://images.unsplash.com/photo-1533750516457-a7f992034fec?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" alt="Automatización de Marketing">
+            <div class="solution-overlay">
+              <div class="demo-btn">
+                <i class="fas fa-play-circle"></i>
+                <span>Ver Demo</span>
+              </div>
+            </div>
+          </div>
+          <div class="solution-info">
+            <h3 class="solution-title">Automatización de Marketing</h3>
+            <p class="solution-description">IA que genera contenido, responde comentarios en redes sociales, y personaliza campañas publicitarias para aumentar ventas.</p>
+            <div class="solution-tech">
+              <span class="tech-badge">Meta API</span>
+              <span class="tech-badge">GPT-4</span>
+              <span class="tech-badge">HubSpot</span>
+            </div>
+            <p class="solution-client"><strong>Cliente:</strong> Retail</p>
+          </div>
+        </div>
+
+        <!-- Solución 5: Automatización de Facturación y Finanzas -->
+        <div class="ai-solution-card">
+          <div class="solution-preview">
+            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" alt="Automatización de Facturación">
+            <div class="solution-overlay">
+              <div class="demo-btn">
+                <i class="fas fa-play-circle"></i>
+                <span>Ver Demo</span>
+              </div>
+            </div>
+          </div>
+          <div class="solution-info">
+            <h3 class="solution-title">Automatización de Facturación</h3>
+            <p class="solution-description">Procesos automáticos para gestionar facturas, pagos, conciliaciones y reportes financieros, optimizando la administración de negocios.</p>
+            <div class="solution-tech">
+              <span class="tech-badge">RPA</span>
+              <span class="tech-badge">UiPath</span>
+              <span class="tech-badge">SAP</span>
+            </div>
+            <p class="solution-client"><strong>Cliente:</strong> Servicios Financieros</p>
+          </div>
+        </div>
+
+        <!-- Solución 6: Análisis y Generación Automática de Documentos -->
+        <div class="ai-solution-card">
+          <div class="solution-preview">
+            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" alt="Análisis de Documentos">
+            <div class="solution-overlay">
+              <div class="demo-btn">
+                <i class="fas fa-play-circle"></i>
+                <span>Ver Demo</span>
+              </div>
+            </div>
+          </div>
+          <div class="solution-info">
+            <h3 class="solution-title">Análisis de Documentos</h3>
+            <p class="solution-description">IA que resume contratos, extrae información clave de documentos legales, y automatiza reportes para abogados, contadores y gerentes.</p>
+            <div class="solution-tech">
+              <span class="tech-badge">OCR</span>
+              <span class="tech-badge">NLP</span>
+              <span class="tech-badge">Azure</span>
+            </div>
+            <p class="solution-client"><strong>Cliente:</strong> Sector Legal</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-5">
+    <div class="container">
+      <div class="row contact-container">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <div class="contact-info">
+            <h2 class="contact-title"><i class="fas fa-comments" style="margin-right: 10px;"></i> Conectemos</h2>
+            <p class="contact-subtitle">Estamos listos para ayudarte a transformar tu negocio con soluciones tecnológicas a medida</p>
+            
+            <div class="contact-methods">
+              <div class="contact-method">
+                <div class="contact-icon">
+                  <i class="fas fa-location-arrow"></i>
+                </div>
+                <div class="contact-text">
+                  <h3>Ubicación</h3>
+                  <p>Medellín, Colombia</p>
+                </div>
+              </div>
+              <div class="contact-method">
+                <div class="contact-icon">
+                  <i class="fas fa-envelope-open-text"></i>
+                </div>
+                <div class="contact-text">
+                  <h3>Email</h3>
+                  <p>lmorales@itecsol.com</p>
+                </div>
+              </div>
+              <div class="contact-method">
+                <div class="contact-icon">
+                  <i class="fas fa-phone-square-alt"></i>
+                </div>
+                <div class="contact-text">
+                  <h3>Teléfono</h3>
+                  <p>+57 301 511 2300</p>
+                </div>
+              </div>
+              <div class="contact-method">
+                <div class="contact-icon">
+                  <i class="fas fa-calendar-alt"></i>
+                </div>
+                <div class="contact-text">
+                  <h3>Horario de Atención</h3>
+                  <p>Lunes a Sábado: 9:00 AM - 5:00 PM</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="social-links">
+              <a href="#" class="social-link" style="background: linear-gradient(135deg, rgba(0, 119, 181, 0.2), rgba(0, 119, 181, 0.2)); border: 1px solid rgba(0, 119, 181, 0.3);">
+                <i class="fab fa-linkedin-in" style="color: #0A66C2;"></i>
+              </a>
+              <a href="#" class="social-link" style="background: linear-gradient(135deg, rgba(29, 161, 242, 0.2), rgba(29, 161, 242, 0.2)); border: 1px solid rgba(29, 161, 242, 0.3);">
+                <i class="fab fa-twitter" style="color: #1DA1F2;"></i>
+              </a>
+              <a href="#" class="social-link" style="background: linear-gradient(135deg, rgba(37, 211, 102, 0.2), rgba(37, 211, 102, 0.2)); border: 1px solid rgba(37, 211, 102, 0.3);">
+                <i class="fab fa-whatsapp" style="color: #25D366;"></i>
+              </a>
+              <a href="#" class="social-link" style="background: linear-gradient(135deg, rgba(36, 41, 46, 0.2), rgba(36, 41, 46, 0.2)); border: 1px solid rgba(36, 41, 46, 0.3);">
+                <i class="fab fa-github" style="color: #24292E;"></i>
+              </a>
+              <a href="#" class="social-link" style="background: linear-gradient(135deg, rgba(0, 119, 255, 0.2), rgba(0, 119, 255, 0.2)); border: 1px solid rgba(0, 119, 255, 0.3);">
+                <i class="fas fa-globe" style="color: #0077FF;"></i>
+              </a>
+            </div>
+            
+            <div class="contact-decoration contact-decoration-1"></div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="contact-form-container">
+            <form class="contact-form">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="nameInput" placeholder="Nombre completo" required>
+                <label for="nameInput">Nombre completo</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="emailInput" placeholder="Correo electrónico" required>
+                <label for="emailInput">Correo electrónico</label>
+              </div>
+              <div class="form-floating mb-3">
+                <select class="form-control" id="serviceSelect">
+                  <option value="" disabled selected>Selecciona un servicio</option>
+                  <option value="automation">Automatización & IA</option>
+                  <option value="consulting">Consultoría TI</option>
+                  <option value="networks">Redes y CCTV</option>
+                  <option value="continuity">Continuidad del Negocio</option>
+                </select>
+                <label for="serviceSelect">Servicio de interés</label>
+              </div>
+              <div class="form-floating mb-4">
+                <textarea class="form-control" id="messageInput" placeholder="¿En qué podemos ayudarte?" style="height: 120px" required></textarea>
+                <label for="messageInput">¿En qué podemos ayudarte?</label>
+              </div>
+              <button type="submit" class="submit-btn">
+                <span class="submit-text">Enviar mensaje</span>
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </form>
+            <div class="contact-decoration contact-decoration-2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 8px;">
+          <i class="fas fa-robot" style="color: #2196F3; font-size: 2em; margin-right: 10px;"></i>
+          <h3 style="font-size: 24px; margin: 0; background: linear-gradient(90deg, #2196F3, #21CBF3); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+            iTec Soluciones
+          </h3>
+        </div>
+        <p style="font-size: 15px; color: rgba(255, 255, 255, 0.8); margin: 0; font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+          Sitio diseñado usando IA  © 2025 • iTec Soluciones • Innovando con Inteligencia Artificial
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Form Handling Script -->
+  <script>
+    document.querySelector('.contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('¡Tu mensaje ha sido enviado! Te contactaremos pronto.');
+      e.target.reset();
+    });
+  </script>
+
+  <!-- Carousel Initialization Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const testimonialCarousel = new bootstrap.Carousel(document.getElementById('testimonialCarousel'), {
+        interval: 5000,
+        touch: true,
+        ride: 'carousel',
+        wrap: true
+      });
+
+      // Ensure proper slide functionality
+      const carouselElement = document.getElementById('testimonialCarousel');
+      carouselElement.addEventListener('slide.bs.carousel', function (e) {
+        const activeSlide = document.querySelector('.carousel-item.active');
+        activeSlide.classList.add('animate__animated', 'animate__fadeOut');
+      });
+
+      carouselElement.addEventListener('slid.bs.carousel', function (e) {
+        const activeSlide = document.querySelector('.carousel-item.active');
+        activeSlide.classList.remove('animate__fadeOut');
+        activeSlide.classList.add('animate__fadeIn');
+      });
+    });
+  </script>
+
+  <!-- Particles.js Initialization -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof particlesJS !== 'undefined') {
+        particlesJS('particles-js', {
+          "particles": {
+            "number": {
+              "value": 80,
+              "density": {
+                "enable": true,
+                "value_area": 800
+              }
+            },
+            "color": { "value": "#2196F3" },
+            "shape": {
+              "type": "circle",
+              "stroke": { "width": 0, "color": "#000000" },
+              "polygon": { "nb_sides": 5 }
+            },
+            "opacity": {
+              "value": 0.5,
+              "random": false,
+              "anim": { "enable": false, "speed": 1, "opacity_min": 0.1, "sync": false }
+            },
+            "size": {
+              "value": 3,
+              "random": true,
+              "anim": { "enable": false, "speed": 40, "size_min": 0.1, "sync": false }
+            },
+            "line_linked": {
+              "enable": true,
+              "distance": 150,
+              "color": "#2196F3",
+              "opacity": 0.4,
+              "width": 1
+            },
+            "move": {
+              "enable": true,
+              "speed": 2,
+              "direction": "none",
+              "random": false,
+              "straight": false,
+              "out_mode": "out",
+              "bounce": false,
+              "attract": { "enable": false, "rotateX": 600, "rotateY": 1200 }
+            }
+          },
+          "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+              "onhover": { "enable": true, "mode": "grab" },
+              "onclick": { "enable": true, "mode": "push" },
+              "resize": true
+            },
+            "modes": {
+              "grab": { "distance": 140, "line_linked": { "opacity": 1 } },
+              "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 },
+              "repulse": { "distance": 200, "duration": 0.4 },
+              "push": { "particles_nb": 4 },
+              "remove": { "particles_nb": 2 }
+            }
+          },
+          "retina_detect": true
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
